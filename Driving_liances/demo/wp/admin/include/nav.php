@@ -27,7 +27,7 @@
 				
 					<ul class="dropdown-menu">
 						<li><a href="index.php?page=dashbord">Admin</a></li>
-						<li><a href="../../Driving_liances/demo/wp/index.php">User</a></li>
+						<li><a href="/">User</a></li>
 						
 					</ul>    				
 				</li>
