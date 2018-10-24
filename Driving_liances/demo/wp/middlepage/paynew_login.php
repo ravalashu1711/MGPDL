@@ -74,22 +74,18 @@ Payment Here
 </table>
 </form>
 
-	
-	<form action="index.php?page=paypal" method="post"> <?php // remove sandbox=1 for live transactions ?>
-    <input type="hidden" name="action" value="process" />
-    <input type="hidden" name="cmd" value="_cart" /> <?php // use _cart for cart checkout ?>
-    <input type="hidden" name="currency_code" value="INR" />
-    <input type="hidden" name="invoice" value="<?php echo date("His").rand(1234, 9632); ?>" />
-    <input type="hidden" name="product_id" value="<?php echo $model; ?>" /> <input type="hidden" name="product_name" value="<?php echo $product_name; ?>" /> 
-	<input type="hidden" name="product_quantity" value="1" />
-	<input type="hidden" name="product_amount" value="<?php echo $total; ?>" />
-	<input type="hidden" name="payer_fname" value="<?php  echo $checkout['name'];  ?>" />
- 	<input type="hidden" name="payer_email" value="<?php  echo $checkout['email'];  ?>" />
-		<input type="hidden" name="payer_address" value="<?php  echo $checkout['address'];  ?>" />
- 
-	<input type="submit" name="submit" value="Pay now using Paypal" /> 
-    </form>
 
+     <form class="paypal" action="/index.php?page=paypal" method="post" id="paypal_form">
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="UK" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <input type="hidden" name="first_name" value="Customer's First Name" />
+        <input type="hidden" name="last_name" value="Customer's Last Name" />
+        <input type="hidden" name="payer_email" value="customer@example.com" />
+        <input type="hidden" name="item_number" value="123456" / >
+        <input type="submit" name="submit" value="Submit Payment"/>
+    </form>
 </div>
 </div>
 </div>
