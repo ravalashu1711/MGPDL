@@ -1,4 +1,5 @@
 <?php
+// var_dump($_POST);
 // For test payments we want to enable the sandbox mode. If you want to put live
 // payments through then this setting needs changing to `false`.
 $enableSandbox = true;
@@ -12,15 +13,15 @@ $dbConfig = [
 // PayPal settings. Change these to your account details and the relevant URLs
 // for your site.
 $paypalConfig = [
-	'email' => 'ravalashutosh17@gmail.com',
-	'return_url' => '/index.php?page=success',
-	'cancel_url' => '/index.php?page=cancel',
-	'notify_url' => '/index.php?page=paypal'
+	'email' => 'mgpdlseller@gmail.com',
+	'return_url' => 'http://mgpdl.local/index.php?page=success',
+	'cancel_url' => 'http://mgpdl.local/index.php?page=cancel',
+	'notify_url' => 'http://mgpdl.local/index.php?page=paypal'
 ];
 $paypalUrl = $enableSandbox ? 'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr';
 // Product being purchased.
-$itemName = 'Test Item';
-$itemAmount = 5.00;
+$itemName = $_POST['name'];
+$itemAmount = $_POST['amount'];
 // Include Functions
 require 'functions.php';
 // Check if paypal request or response
@@ -34,6 +35,7 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	}
 	// Set the PayPal account.
 	$data['business'] = $paypalConfig['email'];
+	$data['password'] = $paypalConfig['password'];
 	// Set the PayPal return addresses.
 	$data['return'] = stripslashes($paypalConfig['return_url']);
 	$data['cancel_return'] = stripslashes($paypalConfig['cancel_url']);
@@ -42,18 +44,20 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 	// and currency so that these aren't overridden by the form data.
 	$data['item_name'] = $itemName;
 	$data['amount'] = $itemAmount;
-	$data['currency_code'] = 'GBP';
+	$data['currency_code'] = 'INR';
 	// Add any custom fields for the query string.
 	//$data['custom'] = USERID;
 	// Build the query string from the data.
 	$queryString = http_build_query($data);
+	// var_dump($queryString);
 	// Redirect to paypal IPN
 	header('location:' . $paypalUrl . '?' . $queryString);
 	exit();
-} else {
+} 
+else {
 	// Handle the PayPal response.
 	// Create a connection to the database.
-	$db = new mysqli($dbConfig['host'], $dbConfig['username'], $dbConfig['password'], $dbConfig['name']);
+	$db = new PDO('mysql:host=localhost,dbname=license','root','123');
 	// Assign posted variables to local data array.
 	$data = [
 		'item_name' => $_POST['item_name'],
@@ -66,12 +70,10 @@ if (!isset($_POST["txn_id"]) && !isset($_POST["txn_type"])) {
 		'payer_email' => $_POST['payer_email'],
 		'custom' => $_POST['custom'],
 	];
-	// We need to verify the transaction comes from PayPal and check we've not
-	// already processed the transaction before adding the payment to our
-	// database.
 	if (verifyTransaction($_POST) && checkTxnid($data['txn_id'])) {
 		if (addPayment($data) !== false) {
 			// Payment successfully added.
 		}
 	}
+		
 }

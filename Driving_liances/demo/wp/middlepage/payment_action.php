@@ -24,17 +24,17 @@
 			$data_license = $query_license->fetch(PDO::FETCH_ASSOC);
 			$last_id = $data_license['pay_id'];
 			$payment_type = $data_license['pay_type'];
-			
-			if($query <=1)
-			{
+			include "paypal.php";
+			// if($query <=1)
+			// {
 				
-				header('location:../index.php?page=payment_view&msg=Successful&pay_id='.$last_id.'&payment_type='.$payment_type);
+			// 	header('location:http://mgpdl.local/index.php?page=payment_view&msg=Successful&pay_id='.$last_id.'&payment_type='.$payment_type);
 
-			}
-			else
-			{
-				header('location:../index.php?page=404');
-			}
+			// }
+			// else
+			// {
+			// 	header('location:../index.php?page=404');
+			// }
 			
 		}
 ?>

@@ -70,8 +70,8 @@ else
 
 <?php 
 include "../include/config.php"; 
-$pay_id = $_GET['pay_id'];
-$sql = "SELECT * FROM `payment` WHERE `pay_id`='$pay_id'";
+$pay_id = $_GET['insertid'];
+$sql = "SELECT * FROM `payments` WHERE `id`='$pay_id'";
 $query = $con->query($sql);
 while($data = $query->fetch(PDO::FETCH_ASSOC))
 {

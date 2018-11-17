@@ -28,7 +28,7 @@
 		{
 			
 			$pay_type = 'Renew License';
-			header('location:../wp/index.php?page=appointment&msg=success&pay_type='.$pay_type.'&name='.$name.'&u_id='.$last_id);
+			header('location:http://mgpdl.local/index.php?page=appointment&msg=success&pay_type='.$pay_type.'&name='.$name.'&u_id='.$last_id);
 			
 		}
 	}

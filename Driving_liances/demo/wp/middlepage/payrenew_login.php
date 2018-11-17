@@ -23,12 +23,6 @@ Payment Here
 <h5>ReNew License Payment</h5>
 <div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="flowers.html#respond" style="display:none;">Click here to cancel reply.</a></div>
 
-		 
-
-
-
-
-
 <form action="index.php?page=payrenew_login_action" method="post" enctype="multipart/form-data">
 
 <table>

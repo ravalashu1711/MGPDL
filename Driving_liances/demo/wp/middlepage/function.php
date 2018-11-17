@@ -1,8 +1,7 @@
 <?php
-
 function verifyTransaction($data) {
     global $paypalUrl;
-    var_dump('hello');
+    // var_dump('hello');
 
     $req = 'cmd=_notify-validate';
     foreach ($data as $key => $value) {
@@ -41,5 +40,6 @@ function verifyTransaction($data) {
 
     curl_close($ch);
 
+    // var_dump($res);
     return $res === 'VERIFIED';
 }

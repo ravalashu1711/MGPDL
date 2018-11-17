@@ -26,7 +26,7 @@
 		<div class="cancel-comment-reply"><a rel="nofollow" id="cancel-comment-reply-link" href="flowers.html#respond" style="display:none;">Click here to cancel reply.</a></div>
 	 
 		 
-			<form action="middlepage/payment_action.php" method="post" enctype="multipart/form-data">
+			<form action="middlepage/paypal.php" method="post" enctype="multipart/form-data">
 				<div class="row">
 					
 					<?php
@@ -129,7 +129,17 @@
 								</select>
 							</div>
 					</div>
-
+					<!-- <form class="paypal" action="/index.php?page=paypal" method="post" id="paypal_form"> -->
+        <input type="hidden" name="cmd" value="_xclick" />
+        <input type="hidden" name="no_note" value="1" />
+        <input type="hidden" name="lc" value="IN" />
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+        <!-- <input type="hidden" name="first_name" value= ?>" /> -->
+        <input type="hidden" name="last_name" value="Customer's Last Name" />
+        <input type="hidden" name="payer_email" value="<?php echo $_GET['email']; ?>" />
+        <!-- <input type="hidden" name="item_number" value="123456" / > -->
+        <!-- <input type="submit" name="submit" value="Submit Payment"/> -->
+    </form>
 					<div class="col-sm-12">
 						
 						<input type="submit" class="button yellow"  value="submit" name="submit">

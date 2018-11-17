@@ -25,7 +25,7 @@
 		else
 		{
 			$pay_type= 'Renew License';	
-			header('location:../wp/index.php?page=payment&msg=success&pay_type='.$pay_type.'&name='.$name.'&rl_id='.$lastrenew_id);
+			header('location:http://mgpdl.local/index.php?page=payment&msg=success&pay_type='.$pay_type.'&name='.$name.'&rl_id='.$lastrenew_id);
 			
 		}
 	}
