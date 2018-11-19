@@ -61,13 +61,10 @@ $query = $con->query($sql);
 while($data = $query->fetch(PDO::FETCH_ASSOC))
 {
 
-// echo "<pre>";
-// print_r($data);
-
 ?>
 <tr class="odd gradeX">
 <td><?php echo $data['nl_id']; ?></td>
-<td><img src="../Driving_liances/demo/wp/upload/<?php echo $data['document']; ?>" style="height:50px;width:50px;"></td>
+<td><img src="img/<?php echo $data['document'] ?>" style="height:50px;width:50px;"></td>
 <td><?php echo $data['lic_cat']; ?></td>
 <td><?php echo $data['name']; ?></td>
 <td><?php echo $data['email']; ?></td>

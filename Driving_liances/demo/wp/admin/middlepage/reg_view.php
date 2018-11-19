@@ -74,7 +74,7 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 ?>
 <tr class="odd gradeX">
 <td><?php echo $data['u_id']; ?></td>
-<td><img src="../Driving_liances/demo/wp/upload/<?php echo $data['photo']; ?>" style="height:50px;width:50px;"></td>
+<td><img src="img/<?php echo $data['photo']; ?>" style="height:50px;width:50px;"></td>
 <td><?php echo $data['aadhar_no']; ?></td>
 <td><?php echo $data['name']; ?></td>
 <td><?php echo $data['uname']; ?></td>

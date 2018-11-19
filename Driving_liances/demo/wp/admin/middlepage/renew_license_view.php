@@ -47,8 +47,6 @@ Data Table Plugin
 <th>Blood Group:</th>
 <th>Education:</th>
 <th>Status:</th>
-<th>Created_Date:</th>
-<th>Updated_Date:</th>
 <th>Action:</th>
 </tr>
 </thead>
@@ -67,7 +65,7 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 ?>
 <tr class="odd gradeX">
 <td><?php echo $data['rl_id']; ?></td>
-<td><img src="../Driving_liances/demo/wp/upload/<?php echo $data['document']; ?>" style="height:50px;width:50px;"></td>
+<td><img src="img/<?php echo $data['document']; ?>" style="height:50px;width:50px;"></td>
 <td><?php echo $data['lic_cat']; ?></td>
 <td><?php echo $data['name']; ?></td>
 <td><?php echo $data['email']; ?></td>
@@ -83,8 +81,6 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 <td><?php echo $data['b_group']; ?></td>
 <td><?php echo $data['education']; ?></td>
 <td><a href="index.php?page=renew_license_action&rl_id=<?php echo $data['rl_id']; ?>&status=<?php echo $data['status'];?>"><?php echo $data['status']; ?></td>
-<td><?php echo $data['created_date']; ?></td>
-<td><?php echo $data['updated_date']; ?></td>
 <td>
 
 <a href = "index.php?page=renew_license_form&rl_id=<?php echo $data['rl_id']; ?>" class="btn btn-info">Edit</a> 

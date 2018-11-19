@@ -30,16 +30,17 @@
 			{
 				//update
 				
-				$sql ="UPDATE `renew_license` SET `name`='$name',`email`='$email',`pincode`='$pincode',`address`='$address',`city`='$city',`state`='$state',`country`='$country',`mobile`='$mobile',`birth_date`='$birth_date',`place_of_birth`='$place_of_birth',`age`='$age',`b_group`='$b_group',`education`='$education',`lic_cat`='$lic_cat' WHERE `rl_id`='$rl_id'"; 
+				$sql ="UPDATE `renew_license` SET `name`='$name',`email`='$email',`pincode`='$pincode',`address`='$address',`city`='$city',`state`='$state',`country`='$country',`mobile`='$mobile',`birth_date`='$birth_date',`place_of_birth`='$place_of_birth',`age`='$age',`b_group`='$b_group',`education`='$education',`document`='$document',`lic_cat`='$lic_cat' WHERE `rl_id`='$rl_id'"; 
 				$query = $con->exec($sql);
+				move_uploaded_file($_FILES['document']['tmp_name'],"../img/".$_FILES['document']['name']);
 
 				if($query<=1)
 				{
-					header('location:../index.php?page=renew_license_view');
+					header('location:http://mgpdl.local/admin//index.php?page=renew_license_view');
 				}
 				else
 				{
-					header('location:../index.php?page=404');
+					header('location:http://mgpdl.local/admin//index.php?page=404');
 				}
 			}
 			else
@@ -48,14 +49,15 @@
 				
 				$sql="INSERT INTO `renew_license` (`name`,`email`,`address`,`pincode`,`city`,`state`,`country`,`mobile`,`birth_date`,`place_of_birth`,`age`,`b_group`,`education`,`document`,`lic_cat`) VALUES('$name','$email','$address','$pincode','$city','$state','$country','$mobile','$birth_date','$place_of_birth','$age','$b_group','$education','$document','$lic_cat')";
 				$query = $con->exec($sql);
+				move_uploaded_file($_FILES['document']['tmp_name'],"../img/".$_FILES['document']['name']);
 
 				if($query <=1)
 				{
-					header('location:../index.php?page=renew_license_view');
+					header('location:http://mgpdl.local/admin//index.php?page=renew_license_view');
 				}
 				else
 				{
-					header('location:../index.php?page=404');
+					header('location:http://mgpdl.local/admin//index.php?page=404');
 				}
 			}
 
@@ -75,13 +77,15 @@
 					//echo "Active Part";
 					$sql = "UPDATE `renew_license` SET `status`='Inactive' WHERE `rl_id`='$rl_id'";
 					$query = $con->exec($sql);
+					move_uploaded_file($_FILES['document']['tmp_name'],"../img/".$_FILES['document']['name']);
+
 					if($query)
 					{
-						header('location:index.php?page=renew_license_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=renew_license_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=renew_license_view&msg=!Error for status update');	
+						header('location:http://mgpdl.local/admin/index.php?page=renew_license_view&msg=!Error for status update');	
 					}
 				}
 				else
@@ -90,13 +94,15 @@
 					//echo "Inactive Part";
 					$sql = "UPDATE `renew_license` SET `status`='Active' WHERE `rl_id`='$rl_id'";
 					$query = $con->exec($sql);
+					move_uploaded_file($_FILES['document']['tmp_name'],"../img/".$_FILES['document']['name']);
+
 					if($query)
 					{
-						header('location:index.php?page=renew_license_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=renew_license_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=renew_license_view&msg=status not Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=renew_license_view&msg=status not Update Successfuly');	
 					}
 				}
 			}
@@ -114,11 +120,12 @@
 				$query =$con->exec($sql);
 				if($query)
 				{
-					header("location:index.php?page=renew_license_view");
+
+					header("location:http://mgpdl.local/admin/index.php?page=renew_license_view");
 				}
 				else
 				{
-					header('location:index.php?page=404');
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 	}

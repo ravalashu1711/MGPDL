@@ -126,10 +126,17 @@ $con = new PDO('mysql:host=localhost;dbname=license','root','123');
 					          <div class="control-group">
 					            <label class="control-label" for="input01">Place Of Birth :</label>
 					            <div class="controls">
-					              <input type="text" class="input-large" value="<?php echo $data['place_of_birth']; ?>" id="input01" name="state" required="">
+					              <input type="text" class="input-large" value="<?php echo $data['place_of_birth']; ?>" id="input01" name="place_of_birth" required="">
 					            </div>
 					          </div>
 					         
+					          <div class="control-group">
+					            <label class="control-label" for="input01">Select Document :</label>
+					            <div class="controls">
+					              <input type="file" class="input-large" id="input01" name="document" required="">
+					            </div>
+					          </div>
+
 					         <div class="control-group">
 					            <label class="control-label" for="input01">Age :</label>
 					            <div class="controls">
