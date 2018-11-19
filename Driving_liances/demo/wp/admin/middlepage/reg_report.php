@@ -56,8 +56,6 @@ Data Table Plugin
 <th>Age</th>
 <th>Gender</th>
 <th>Status</th>
-<th>Created_Date</th>
-<th>Updated_Date</th>
 
 </tr>
 </thead>
@@ -76,7 +74,7 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 ?>
 <tr class="odd gradeX">
 <td><?php echo $data['u_id']; ?></td>
-<td><img src="../Driving_liances/demo/wp/upload/<?php echo $data['photo']; ?>" style="height:50px;width:50px;"></td>
+<td><img src="img/<?php echo $data['photo']; ?>" style="height:50px;width:50px;"></td>
 <td><?php echo $data['aadhar_no']; ?></td>
 <td><?php echo $data['name']; ?></td>
 <td><?php echo $data['uname']; ?></td>
@@ -91,8 +89,6 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 <td><?php echo $data['age']; ?></td>
 <td><?php echo $data['gender']; ?></td>
 <td><a href="index.php?page=reg_action&u_id=<?php echo $data['u_id']; ?>&status=<?php echo $data['status'];?>"><?php echo $data['status']; ?></a></td>
-<td><?php echo $data['created_date']; ?></td>
-<td><?php echo $data['updated_date']; ?></td>
 
 </tr>
 <?php

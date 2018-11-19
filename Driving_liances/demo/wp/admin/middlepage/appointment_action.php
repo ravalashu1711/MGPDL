@@ -20,11 +20,11 @@
 
 				if($query <=1)
 				{
-					header('location:../index.php?page=appointment_view');
+					header('location:http://mgpdl.local/admin//index.php?page=appointment_view');
 				}
 				else
 				{
-					header('location:../index.php?page=404');
+					header('location:http://mgpdl.local/admin//index.php?page=404');
 				}
 			}
 			else
@@ -36,11 +36,11 @@
 
 				if($query <=1)
 				{
-					header('location:../index.php?page=appointment_view');
+					header('location:http://mgpdl.local/admin/index.php?page=appointment_view');
 				}
 				else
 				{
-					header('location:../index.php?page=404');
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 
@@ -54,11 +54,11 @@
 			$query =$con->exec($sql);
 			if($query)
 			{
-				header("location:index.php?page=appointment_view");
+				header("location:http://mgpdl.local/admin/index.php?page=appointment_view");
 			}
 			else
 			{
-				header('location:index.php?page=404');
+				header('location:http://mgpdl.local/admin/index.php?page=404');
 			}
 		}	
 ?>

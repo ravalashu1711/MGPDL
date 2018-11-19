@@ -7,7 +7,7 @@
 
 <ul class="breadcrumb">
 <li>
-<a href="index.php?page=appointment_form">Home</a>
+<a href="index.php?page=license_type_form">Home</a>
 </li>
 </ul>
 
@@ -32,11 +32,8 @@ Data Table Plugin
 <thead>
 
 <tr>
-<th>Ap_Id</th>
-<th>User_Id</th>
-<th>Candidate Name</th>
-<th>Appointment Type</th>
-<th>Ap_Date</th>
+<th>Lic id</th>
+<th>Lic type</th>
 <th>Created_Date</th>
 <th>Updated_Date</th>
 <th>Action</th>
@@ -46,7 +43,7 @@ Data Table Plugin
 <?php 
 $n=1;
 $con = new PDO('mysql:host=localhost;dbname=license','root','123');
-$sql = "SELECT * FROM `appointment`";
+$sql = "SELECT * FROM `license_type`";
 $query = $con->query($sql);
 while($data = $query->fetch(PDO::FETCH_ASSOC))
 {
@@ -57,15 +54,12 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 ?>
 <tr class="odd gradeX">
 <td><?php echo $n++;//$data['ap_id']; ?></td>
-<td><?php echo $data['u_id']; ?></td>
-<td><?php echo $data['name']; ?></td>
-<td><?php echo $data['ap_type']; ?></td>
-<td><?php echo $data['ap_date']; ?></td>
+<td><?php echo $data['lic_type']; ?></td>
 <td><?php echo $data['created_date']; ?></td>
 <td><?php echo $data['updated_date']; ?></td>
 <td>
-<a href = "index.php?page=appointment_form&ap_id=<?php echo $data['ap_id']; ?>" class="btn btn-info">Edit</a> 
-<a href = "index.php?page=appointment_action&ap_id=<?php echo $data['ap_id']; ?>" class="btn btn-danger">Delete</a>
+<a href = "index.php?page=license_type_form&lic_id=<?php echo $data['lic_id']; ?>" class="btn btn-info">Edit</a> 
+<a href = "index.php?page=license_type_action&lic_id=<?php echo $data['lic_id']; ?>" class="btn btn-danger">Delete</a>
 </td>
 </tr>
 <?php

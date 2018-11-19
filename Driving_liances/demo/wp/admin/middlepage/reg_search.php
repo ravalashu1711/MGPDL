@@ -26,15 +26,15 @@
 
 <?php	
 	include_once('../include/config.php');
-
+	// var_dump($_POST);
 	if(isset($_POST['submit']))
 	{
 		$from_date = $_POST['from_date'];
 		$to_date   = $_POST['to_date'];
 
-		$sql = "SELECT * FROM `user_reg` WHERE created_date >= '$from_date' AND created_date <= '$to_date'";
-
+		$sql = "SELECT * FROM `user_reg` WHERE created_date >= '$from_date'";
 		$result = $con->query($sql);
+		
 	}
 		echo "
 				<center>
@@ -57,16 +57,11 @@
 				<th>Age</th>
 				<th>Gender</th>
 				<th>Status</th>
-				<th>Created_Date</th>
-				<th>Updated_Date</th>
 
 				</tr>";
 
 				while($data = $result->fetch(PDO::FETCH_ASSOC))
 				{
-
-				// echo "<pre>";
-				// print_r($data);
 
 				echo"
 				<tr>
@@ -85,8 +80,6 @@
 				<td>".$data['age']."</td>
 				<td>".$data['gender']."</td>
 				<td>".$data['status']."</td>
-				<td>".$data['created_date']."</td>
-				<td>".$data['updated_date']."</td>
 				</tr>";
 				}
 				echo "</table></center>";

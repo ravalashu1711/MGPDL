@@ -54,7 +54,7 @@ while($data = $query->fetch(PDO::FETCH_ASSOC))
 ?>
 <tr class="odd gradeX">
 <td><?php echo $i++;//$data['a_id']; ?></td>
-<td><a href="upload/<?php echo $data['photo']; ?>" class="highslide" onclick="return hs.expand(this)"><strong><?php echo stristr($data['photo'],"j",true); ?></strong></a>
+<td><img src="upload/<?php echo $data['photo']; ?>" class="highslide" width="100" height="100" onclick="return hs.expand(this)">
 </td>
 <td><?php echo $data['name']; ?></td>
 <td><?php echo $data['email']; ?></td>

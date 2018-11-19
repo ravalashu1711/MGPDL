@@ -37,7 +37,7 @@
 					
 					<div class="widget-content">
 						
-						<form class="form-horizontal" action="middlepage/admin_action.php" method="post" enctype="multipart/form-data">
+						<form class="form-horizontal" action="index.php?page=admin_action" method="post" enctype="multipart/form-data">
 					        <fieldset>
 					          
 							 <div class="control-group">
@@ -48,7 +48,7 @@
 										{
 									 ?>
 									  <img src="upload/<?php echo $data['photo']; ?>" alt="<?php echo $data['photo']; ?>" style="height:80px;width:80px;"/><br>
-									  <input type="hidden" name="old_img" value="<?php echo $data['photo']; ?>"  />
+									  <input type="hidden" name="photo" value="<?php echo $data['photo']; ?>"  />
 									 <?php 
 										}
 									 ?>

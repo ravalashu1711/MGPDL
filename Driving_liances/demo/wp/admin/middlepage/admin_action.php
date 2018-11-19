@@ -12,6 +12,7 @@
 			$con_password    = $_POST['con_password'];
 
 			$photo         =   $_FILES['photo']['name'];
+		
 			$img_type      =   $_FILES['photo']['type'];
 			$img_size      =   $_FILES['photo']['size'];
 			$tmp_name      =   $_FILES['photo']['tmp_name'];
@@ -21,37 +22,18 @@
 			if($a_id !='')
 			{
 				//update
-				$old_img = $_POST['old_img'];
-				$sql ="UPDATE `admin_login` SET `name`='$name',`email`='$email',`password`='$password',`con_password`='$con_password',`status`='$status' WHERE `a_id`='$a_id'"; 
+				$old_img = $_POST['photo'];
+				$sql ="UPDATE `admin_login` SET `photo`='$photo',`name`='$name',`email`='$email',`password`='$password',`con_password`='$con_password',`status`='$status' WHERE `a_id`='$a_id'"; 
 				$query = $con->exec($sql);
-
-
-				if($old_img == true && $photo== null)
+				
+				if($query)
 				{
-					header('location:../index.php?page=admin_view');
+					move_uploaded_file($tmp_name,"../upload/".$photo);
+					header('location:http://mgpdl.local/admin/index.php?page=admin_view');
 				}
-				else if($old_img == true && $photo == true)
+				else
 				{
-					//echo "delete the pic";
-					$old_img_pic = unlink("./upload/".$old_img);
-					if($old_img_pic == true)
-					{
-						$new_uplod_file = move_uploaded_file($tmp_name,"./upload/".$photo);
-						if($new_uplod_file == true)
-						{
-							$sql_pic = "UPDATE `admin_login` SET `photo`='$photo' WHERE `a_id`='$a_id'";
-							$query = $con->exec($sql_pic);
-							header('location:../index.php?page=admin_view');
-						}
-						else
-						{
-							echo "!Error for upload new File";
-						}
-					}
-					else
-					{
-						//echo "!Error for delete the old file";
-					}
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 			else
@@ -64,11 +46,11 @@
 				if($query)
 				{
 					move_uploaded_file($tmp_name,"../upload/".$photo);
-					header('location:../index.php?page=admin_view');
+					header('location:http://mgpdl.local/admin/index.php?page=admin_view');
 				}
 				else
 				{
-					header('location:../index.php?page=404');
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 
@@ -89,11 +71,11 @@
 					$query = $con->exec($sql);
 					if($query)
 					{
-						header('location:index.php?page=admin_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=admin_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=admin_view&msg=!Error for status update');	
+						header('location:http://mgpdl.local/admin/index.php?page=admin_view&msg=!Error for status update');	
 					}
 				}
 				else
@@ -104,11 +86,11 @@
 					$query = $con->exec($sql);
 					if($query)
 					{
-						header('location:index.php?page=admin_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=admin_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=admin_view&msg=status not Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=admin_view&msg=status not Update Successfuly');	
 					}
 				}
 			}
@@ -121,11 +103,11 @@
 				$query =$con->exec($sql);
 				if($query)
 				{
-					header("location:index.php?page=admin_view");
+					header("location:http://mgpdl.local/admin/index.php?page=admin_view");
 				}
 				else
 				{
-					header('location:index.php?page=404');
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 		}

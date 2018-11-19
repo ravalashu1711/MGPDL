@@ -62,11 +62,11 @@
 					$query = $con->exec($sql);
 					if($query)
 					{
-						header('location:index.php?page=feedback_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=feedback_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=feedback_view&msg=!Error for status update');	
+						header('location:http://mgpdl.local/admin/index.php?page=feedback_view&msg=!Error for status update');	
 					}
 				}
 				else
@@ -77,11 +77,11 @@
 					$query = $con->exec($sql);
 					if($query)
 					{
-						header('location:index.php?page=feedback_view&msg=Status Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=feedback_view&msg=Status Update Successfuly');	
 					}
 					else
 					{
-						header('location:index.php?page=feedback_view&msg=status not Update Successfuly');	
+						header('location:http://mgpdl.local/admin/index.php?page=feedback_view&msg=status not Update Successfuly');	
 					}
 				}
 			}
@@ -94,11 +94,11 @@
 				$query =$con->exec($sql);
 				if($query)
 				{
-					header("location:index.php?page=feedback_view");
+					header("location:http://mgpdl.local/admin/index.php?page=feedback_view");
 				}
 				else
 				{
-					header('location:index.php?page=404');
+					header('location:http://mgpdl.local/admin/index.php?page=404');
 				}
 			}
 		}	
